@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match 'n' Taste</title>
+    <link rel="stylesheet" href="css/Result_Styles.css">
+
+    <!-- Vercel Analytics Script -->
+    <!--
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    -->
+    <!-- End of Vercel Analytics Script -->
+    <link rel="prefetch" href="SecondPage.html"> 
+</head>
+<body>
+    <div class="background">
+        <div class="box">
+            <p class="question">We Suggest...</p>
+            <div class="content">
+                <img id="cocktail-image" src="" alt="Cocktail Image" class="suggested-image">
+                <h2 id="cocktail-name" class="cocktail-name"></h2>
+                <p id="cocktail-description" class="description"></p>
+            </div>
+            <div class="home-back-button-container">
+                <a href="index.html">
+                    <button class="home-button">Home</button>
+                </a>
+                <button class="back-button" onclick="window.history.back()">Back</button>
+            </div>
+        </div>
+    </div>
+    <script defer src="js/Result_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match 'n' Taste</title>
+    <link rel="stylesheet" href="css/Index_Styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css">
+
+    <!-- Vercel Analytics Script -->
+    <!--
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    -->
+    <!-- End of Vercel Analytics Script -->
+
+    <!-- EmailJS Script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        const EMAILJS_USER_ID = 'JGZjmSK5cu1LprSV5';
+        (function(){emailjs.init({publicKey: EMAILJS_USER_ID,});})();
+    </script>
+
+    <!-- Prefetch links for faster loading of next pages -->
+    <link rel="prefetch" href="SecondPage.html">
+    <link rel="prefetch" href="Result.html">
+</head>
+<body>
+    <div class="background">
+        <div class="box">
+            <p class="question"></p>
+            <div id="InitialPage-buttons-container" class="button-container"></div>
+        </div>
+        <button id="randomCocktailButton" class="centered-button">
+            <i class="fas fa-dice"></i> Surprise me <i class="fas fa-dice"></i>
+        </button>
+        <button id="specialButton" class="centered-button" onclick="window.location.href='ResultsOfButtons.html';">Show Results</button>
+        <button id="throwErrorButton" class="centered-button">Throw Error</button>
+    </div>
+
+    <!-- Loading Spinner Overlay -->
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script defer src="js/script.js"></script>
+</body>
+</html>

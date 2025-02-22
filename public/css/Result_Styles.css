@@ -1,0 +1,93 @@
+/* Reset default styles for body and html */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Background container */
+.background {
+    background: url('../images/3.png') no-repeat center / cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+}
+
+/* Content box styling */
+.box {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid #c47d7d;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 340px;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: height 0.3s;
+    margin-bottom: 50px;
+}
+
+.box.auto-height {
+    height: auto;
+}
+
+/* Question text */
+.question {
+    font-size: 30px;
+    margin: -2px 0 15px;
+    color: white;
+}
+
+/* Style for Home and Back buttons container */
+.home-back-button-container {
+    display: flex;
+    gap: 10px; /* Space between the buttons */
+    justify-content: center;
+}
+
+.home-button, .back-button {
+    background-color: #808080;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.home-button:hover, .back-button:hover {
+    background-color: #a9a9a9;
+}
+
+.suggested-image {
+    display: block;
+    width: 300px; /* Fixed width */
+    height: 300px; /* Fixed height */
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover; /* Maintain aspect ratio and fill the area */
+    object-position: center; /* Center the image within the container */
+}
+
+.description {
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+}
+
+.cocktail-name{
+    color: white;
+    text-align: center;
+}

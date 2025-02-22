@@ -1,0 +1,145 @@
+[
+  {
+    "name": "Mango Tango",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Tropical & Exotic",
+    "What do you think of pineapple?": "Love it!",
+    "What are you in the mood for?": "Fruity Gin-based Cocktail",
+    "description": "A fruity gin-based cocktail with mango and tropical vibes."
+  },
+  {
+    "name": "Caribbean Breeze",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Tropical & Exotic",
+    "What do you think of pineapple?": "Love it!",
+    "What are you in the mood for?": "Bubbling spritz with melon",
+    "description": "A refreshing bubbling spritz with a hint of melon, perfect for tropical fans."
+  },
+  {
+    "name": "Dragons Zombie",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Tropical & Exotic",
+    "What do you think of pineapple?": "Not a fan",
+    "What are you in the mood for?": "Classic-remake with Rum",
+    "description": "A classic rum cocktail with a tropical twist."
+  },
+  {
+    "name": "Monkeys Paradise",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Tropical & Exotic",
+    "What do you think of pineapple?": "Not a fan",
+    "What are you in the mood for?": "Bubbling spritz with Banana",
+    "description": "A banana-forward bubbling spritz with tropical notes."
+  },
+  {
+    "name": "Fragolas Spritz",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Berry-Focused",
+    "What’s your guilty pleasure?": "Strawberry-Dominant",
+    "description": "A strawberry-focused spritz for berry lovers."
+  },
+  {
+    "name": "The Elixir",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Berry-Focused",
+    "What’s your guilty pleasure?": "Raspberries & Passion Fruit",
+    "description": "A luscious mix of raspberries and passion fruit in a delightful cocktail."
+  },
+  {
+    "name": "Bahama Mama",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Rich & Sweet",
+    "What’s your go-to drink?": "Rum",
+    "description": "A rich and sweet rum-based tropical classic."
+  },
+  {
+    "name": "Watermelon Oasis",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Rich & Sweet",
+    "What’s your go-to drink?": "Masticha",
+    "description": "A refreshing Masticha-based cocktail with watermelon."
+  },
+  {
+    "name": "Sweet Amigo",
+    "What kind of experience are you looking for?": "Something sweet...",
+    "What type of sweetness are you looking for?": "Rich & Sweet",
+    "What’s your go-to drink?": "Tequila",
+    "description": "A sweet and tequila-based drink for those craving rich sweetness."
+  },
+  {
+    "name": "The Gardener",
+    "What kind of experience are you looking for?": "Light and Refreshing",
+    "What is your preferred alcohol base?": "Gin",
+    "description": "A refreshing gin-based cocktail with herbal notes."
+  },
+  {
+    "name": "Picasso",
+    "What kind of experience are you looking for?": "Light and Refreshing",
+    "What is your preferred alcohol base?": "Prosecco",
+    "Which fruit flavor do you prefer?": "Peach-Flavored",
+    "description": "A delicate peach-flavored Prosecco cocktail."
+  },
+  {
+    "name": "Monkeys Paradise",
+    "What kind of experience are you looking for?": "Light and Refreshing",
+    "What is your preferred alcohol base?": "Prosecco",
+    "Which fruit flavor do you prefer?": "Banana-Flavored",
+    "description": "A refreshing Prosecco cocktail with banana flavor."
+  },
+  {
+    "name": "Fragolas Spritz",
+    "What kind of experience are you looking for?": "Light and Refreshing",
+    "What is your preferred alcohol base?": "Moschato D'asti",
+    "What excites your taste?": "Strawberry Delight",
+    "description": "A delightful strawberry-based Moschato D'asti cocktail."
+  },
+  {
+    "name": "Caribbean Breeze",
+    "What kind of experience are you looking for?": "Light and Refreshing",
+    "What is your preferred alcohol base?": "Moschato D'asti",
+    "What excites your taste?": "Tropical Vibe",
+    "description": "A tropical Moschato D'asti cocktail with vibrant flavors."
+  },
+  {
+    "name": "Aegean Negroni",
+    "What kind of experience are you looking for?": "Intense and Complex",
+    "What flavor seems exciting?": "Old favorites, remade!",
+    "What’s your ideal combo?": "Bitter with Gin",
+    "description": "A bold gin cocktail with a bitter twist, reimagining the classic Negroni."
+  },
+  {
+    "name": "Dragons Zombie",
+    "What kind of experience are you looking for?": "Intense and Complex",
+    "What flavor seems exciting?": "Old favorites, remade!",
+    "What’s your ideal combo?": "Rum-based with tropical sweetness",
+    "description": "A rich rum cocktail with a touch of tropical sweetness."
+  },
+  {
+    "name": "Spicy Columbus",
+    "What kind of experience are you looking for?": "Intense and Complex",
+    "What flavor seems exciting?": "Smokey & Spicy",
+    "What’s your perfect match?": "Spicy with Tequila",
+    "description": "A daring tequila cocktail with a spicy kick, designed for adventurous palates."
+  },
+  {
+    "name": "Smokey Aperol",
+    "What kind of experience are you looking for?": "Intense and Complex",
+    "What flavor seems exciting?": "Smokey & Spicy",
+    "What’s your perfect match?": "Bitter-Sweet and Smokey",
+    "description": "A smokey and bitter-sweet Aperol cocktail."
+  },
+  {
+    "name": "Drunk Popcorn",
+    "What kind of experience are you looking for?": "Intense and Complex",
+    "What flavor seems exciting?": "Sweet Meets Salty",
+    "Feeling adventurous?": "Yes, surprise me!",
+    "description": "An adventurous cocktail that blends sweet and salty elements."
+  },
+  {
+    "name": "Sweet Amigo",
+    "What kind of experience are you looking for?": "Intense and Complex",
+    "What flavor seems exciting?": "Sweet Meets Salty",
+    "Feeling adventurous?": "No, keep it simple",
+    "description": "A straightforward tequila cocktail with sweet and salty notes."
+  }
+]
