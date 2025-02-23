@@ -71,7 +71,7 @@ button {
 }
 
 button:hover {
-    background-color: #d37979;
+    background-color: #d49775;
 }
 
 /* Specific button styles */
@@ -93,7 +93,7 @@ button:hover {
 }
 
 #randomCocktailButton:hover, #specialButton:hover, #throwErrorButton:hover {
-    background: #ef5e5e;
+    background: #a36042;
 }
 
 #specialButton, #throwErrorButton {

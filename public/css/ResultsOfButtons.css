@@ -24,7 +24,7 @@ body, html {
 
 .box {
     background-color: rgba(0, 0, 0, 0.8);
-    border: 2px solid #ccc;
+    border: 2px solid #a24f22;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -57,14 +57,14 @@ table th, table td {
 }
 
 table th {
-    background-color: #ef1f1f;
+    background-color: #882f14;
     position: sticky;
     top: 0;
     z-index: 1; /* Ensures the header stays on top when scrolling */
 }
 
 table tr {
-    background-color: #eb77775a;
+    background-color: #a36042;
 }
 
 /* Table wrapper for scrollable effect */

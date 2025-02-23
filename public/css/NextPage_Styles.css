@@ -22,7 +22,7 @@ body, html {
 /* Content box styling */
 .box {
     background-color: rgba(0, 0, 0, 0.72);
-    border: 2px solid #c47d7d;
+    border: 2px solid #a24f22;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -58,7 +58,7 @@ body, html {
 
 /* General button styles */
 button {
-    background-color: rgb(209, 109, 85);
+    background-color: #a24f22;/* rgb(209, 109, 85); */
     border: none;
     padding: 10px;
     border-radius: 10px;
@@ -71,7 +71,7 @@ button {
 }
 
 button:hover {
-    background-color: #d37979;
+    background-color: #d49775;
 }
 
 
