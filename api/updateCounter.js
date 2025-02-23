@@ -29,7 +29,7 @@ export default async (req, res) => {
   try {
     // Query to update count
     const query = `
-      UPDATE click_counts
+      UPDATE nomad_click_counts
       SET count = count + 1
       WHERE question = $1 AND answer = $2
       RETURNING *;

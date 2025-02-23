@@ -21,7 +21,7 @@ export default async (req, res) => {
 
   try {
     // Query to get all the data from the 'click_counts' table, ordered by count descending
-    const query = `SELECT * FROM click_counts ORDER BY count DESC`;
+    const query = `SELECT * FROM nomad_click_counts ORDER BY count DESC`;
 
     // Execute the query
     const result = await pool.query(query);
