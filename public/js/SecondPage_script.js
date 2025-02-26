@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Handle button click and redirect to the next page
     async function handleAnswerClick(question, selectedAnswer) {
-        toggleLoading(true);
+        // toggleLoading(true);
 
         try {
             await fetch('/api/updateCounter', {
@@ -55,15 +55,16 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = `NextPage.html?2=${encodeURIComponent(selectedAnswer)}`;
         } catch (err) {
             logError('Error updating click counter', err);
-        } finally {
-            toggleLoading(false);
         }
+        //  finally {
+        //     toggleLoading(false);
+        // }
     }
 
     // Show or hide the loading overlay
-    function toggleLoading(show) {
-        loadingOverlay.style.visibility = show ? 'visible' : 'hidden';
-    }
+    // function toggleLoading(show) {
+    //     loadingOverlay.style.visibility = show ? 'visible' : 'hidden';
+    // }
 
     // Debounce function to limit rapid function execution
     function debounce(func, delay) {

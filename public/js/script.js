@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle answer button click
     async function handleAnswerClick(event) {
         const selectedAnswer = event.target.dataset.answer;
-        toggleLoading(true);
+        // toggleLoading(true);
 
         try {
             await fetch('/api/updateCounter', {
@@ -77,14 +77,15 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = `SecondPage.html?FirstQuestionAnswer=${encodeURIComponent(selectedAnswer)}`;
         } catch (err) {
             logError('Error updating click counter', err);
-        } finally {
-            toggleLoading(false);
-        }
+        } 
+        // finally {
+        //     toggleLoading(false);
+        // }
     }
 
     // Handle random cocktail button click
     randomCocktailButton.addEventListener("click", () => {
-        toggleLoading(true);
+        // toggleLoading(true);
         try {
             if (cocktails.length) {
                 const randomCocktail = cocktails[Math.floor(Math.random() * cocktails.length)];
@@ -92,27 +93,29 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } catch (err) {
             logError('Εrror in handling random cocktail button', err);
-        } finally {
-            toggleLoading(false);
-        }
+        } 
+        // finally {
+        //     toggleLoading(false);
+        // }
     });
 
     // Handle Error Simulation button click
     throwErrorButton.addEventListener("click", () => {
-        toggleLoading(true);
+        // toggleLoading(true);
         try {
             throw new Error('Test error triggered by Throw Error button');
         } catch (err) {
             logError('Manually triggered error', err);
-        } finally {
-            toggleLoading(false);
         }
+        //  finally {
+        //     toggleLoading(false);
+        // }
     });
 
     // Toggle loading overlay visibility
-    function toggleLoading(show) {
-        loadingOverlay.style.visibility = show ? 'visible' : 'hidden';
-    }
+    // function toggleLoading(show) {
+    //     loadingOverlay.style.visibility = show ? 'visible' : 'hidden';
+    // }
 
     // Debounce function to limit rapid function execution
     function debounce(func, delay) {

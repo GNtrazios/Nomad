@@ -1,7 +1,7 @@
 import qrcode
 
 # Specify the website URL
-website_url = "https://matchand-taste.vercel.app/"
+website_url = "https://nomad-matchandtaste.vercel.app/"
 
 # Generate the QR code
 qr = qrcode.QRCode(
