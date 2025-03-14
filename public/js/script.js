@@ -34,8 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let JSON_data;
         if (textlang === 'en') {
             JSON_data = 'CocktailsInEnglish.json';
+            randomCocktailButton.innerHTML = '<i class="fas fa-dice"></i> Surprise me <i class="fas fa-dice"></i>';
         } else {
             JSON_data = 'CocktailsInGreek.json';
+            randomCocktailButton.innerHTML = '<i class="fas fa-dice"></i> Έκπληξη! <i class="fas fa-dice"></i>';
         }
 
         // Initialize EmailJS

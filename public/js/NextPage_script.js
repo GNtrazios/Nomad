@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+    const homeButtonElement = document.querySelector('.home-button');
+    const backButtonElement = document.querySelector('.back-button');
     const questionElement = document.querySelector('.question');
     const nextPageButtonsContainer = document.getElementById('NextPage-Question-buttons-container');
     const loadingOverlay = document.querySelector('.loading-overlay');
@@ -16,6 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }); 
 
+    // Redirecting when clicking .home-button
+    homeButtonElement.addEventListener("click", function () {
+        window.location.href = `index.html?textlang=${encodeURIComponent(textlang)}`;
+    });
+
     // Initialize the page
     init(); 
 
@@ -23,8 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
         let JSON_data;
         if (textlang === 'en') {
             JSON_data = 'CocktailsInEnglish.json';
+            homeButtonElement.textContent = "Home";
+            backButtonElement.textContent = "Back";
         } else {
             JSON_data = 'CocktailsInGreek.json';
+            homeButtonElement.textContent = "Αρχική";
+            backButtonElement.textContent = "Πίσω";
         }
 
         // Fetch and process cocktail data
