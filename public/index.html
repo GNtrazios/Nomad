@@ -10,21 +10,17 @@
 
     <!-- Vercel Analytics Script --> 
     <script>
-        console.log('Initializing Vercel Analytics...');
-      
-        // Override the default Vercel Analytics behavior
-        window.va = window.va || function () { 
-          console.log('Vercel Analytics event triggered:', arguments);
-          (window.vaq = window.vaq || []).push(arguments); 
+        // window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        // Override the default va function
+        window.va = function () {
+            // Check if the event is a page view
+            if (arguments[0] === 'pageview') {
+                // Do nothing (prevent page view tracking)
+                return;
+            }
+            // Forward all other events to the original va function
+            (window.vaq = window.vaq || []).push(arguments);
         };
-      
-        // Disable automatic page view tracking
-        window.va('init', { autoTrack: false });
-        console.log('Vercel Analytics initialized with autoTrack: false');
-      
-        // Track a unique visitor manually
-        window.va('event', 'Unique Visitor', {});
-        console.log('Unique Visitor event tracked');
     </script>
     <script defer src="/_vercel/insights/script.js"></script>
     <!-- End of Vercel Analytics Script --> 
