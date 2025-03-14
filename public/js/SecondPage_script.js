@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadingOverlay = document.querySelector('.loading-overlay');
     const FirstQuestionAnswer = new URLSearchParams(window.location.search).get('FirstQuestionAnswer');
     const textlang = new URLSearchParams(window.location.search).get('textlang');
+    let cocktailData = [];
 
     // Set language when clicking flags
     document.querySelectorAll('.language-switcher img').forEach(flag => {
@@ -39,7 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Fetch and process cocktail data
         fetch(JSON_data)
             .then(response => response.json())
-            .then(data => handleCocktailData(data))
+            .then(data => {cocktailData = data;
+                        handleCocktailData(cocktailData);
+                    })
             .catch(err => logError('Error loading cocktail data', err));
     }
 
@@ -84,8 +87,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ question, answer: selectedAnswer })
             });
+            
+            const NextfilteredData = cocktailData.filter(item => {
+                const values = Object.values(item);
+                return values[2] === selectedAnswer;
+            });
 
-            window.location.href = `NextPage.html?2=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
+            const nextQuestionKey = Object.keys(NextfilteredData[0] || {})[3];
+            
+            if (nextQuestionKey && nextQuestionKey !== 'description') {
+                window.location.href = `NextPage.html?${encodeURIComponent(2)}=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
+            } else {
+                window.location.href = `Result.html?name=${encodeURIComponent(NextfilteredData[0]?.name)}&textlang=${encodeURIComponent(textlang)}`;
+            }
+
+            // window.location.href = `NextPage.html?2=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
         } catch (err) {
             logError('Error updating click counter', err);
         }
