@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const nextQuestionKey = Object.keys(NextfilteredData[0] || {})[3];
             
             if (nextQuestionKey && nextQuestionKey !== 'description') {
-                window.location.href = `NextPage.html?${encodeURIComponent(2)}=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
+                window.location.href = `NextPage.html?2=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
             } else {
                 window.location.href = `Result.html?name=${encodeURIComponent(NextfilteredData[0]?.name)}&textlang=${encodeURIComponent(textlang)}`;
             }
