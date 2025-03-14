@@ -2,20 +2,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionElement = document.querySelector('.question');
     const nextPageButtonsContainer = document.getElementById('NextPage-Question-buttons-container');
     const loadingOverlay = document.querySelector('.loading-overlay');
-
     const urlParams = new URLSearchParams(window.location.search);
     const currentQuestionIndex = parseInt([...urlParams.keys()][0], 10);
     const previousAnswer = urlParams.get(currentQuestionIndex);
-
+    const textlang = new URLSearchParams(window.location.search).get('textlang');
     let cocktailData = [];
 
-    // Fetch and process cocktail data
-    fetch('OubiCocktails.json')
-        .then(response => response.json())
-        .then(data => {cocktailData = data;
-                       handleCocktailData(cocktailData);
-                })
-        .catch(err => logError('Error loading cocktail data', err));
+    // Set language when clicking flags
+    document.querySelectorAll('.language-switcher img').forEach(flag => {
+        flag.addEventListener('click', function () {
+            const lang = this.getAttribute('alt') === 'English' ? 'en' : 'gr';
+            window.location.href = `index.html?textlang=${encodeURIComponent(lang)}`;
+        });
+    }); 
+
+    // Initialize the page
+    init(); 
+
+    function init() {
+        let JSON_data;
+        if (textlang === 'en') {
+            JSON_data = 'CocktailsInEnglish.json';
+        } else {
+            JSON_data = 'CocktailsInGreek.json';
+        }
+
+        // Fetch and process cocktail data
+        fetch(JSON_data)
+            .then(response => response.json())
+            .then(data => {cocktailData = data;
+                        handleCocktailData(cocktailData);
+                    })
+            .catch(err => logError('Error loading cocktail data', err));
+    }
 
     // Handle cocktail data and set up the next question
     function handleCocktailData(data) {
@@ -69,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const nextQuestionKey = Object.keys(NextfilteredData[0] || {})[currentQuestionIndex + 2];
             
             if (nextQuestionKey && nextQuestionKey !== 'description') {
-                window.location.href = `NextPage.html?${encodeURIComponent(currentQuestionIndex + 1)}=${encodeURIComponent(selectedAnswer)}`;
+                window.location.href = `NextPage.html?${encodeURIComponent(currentQuestionIndex + 1)}=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
             } else {
-                window.location.href = `Result.html?name=${encodeURIComponent(NextfilteredData[0]?.name)}`;
+                window.location.href = `Result.html?name=${encodeURIComponent(NextfilteredData[0]?.name)}&textlang=${encodeURIComponent(textlang)}`;
             }
 
         } catch (err) {

@@ -3,12 +3,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const secondPageButtonsContainer = document.getElementById('SecondPage-Question-buttons-container');
     const loadingOverlay = document.querySelector('.loading-overlay');
     const FirstQuestionAnswer = new URLSearchParams(window.location.search).get('FirstQuestionAnswer');
+    const textlang = new URLSearchParams(window.location.search).get('textlang');
 
-    // Fetch and process cocktail data
-    fetch('OubiCocktails.json')
-        .then(response => response.json())
-        .then(data => handleCocktailData(data))
-        .catch(err => logError('Error loading cocktail data', err));
+    // Set language when clicking flags
+    document.querySelectorAll('.language-switcher img').forEach(flag => {
+        flag.addEventListener('click', function () {
+            const lang = this.getAttribute('alt') === 'English' ? 'en' : 'gr';
+            window.location.href = `index.html?textlang=${encodeURIComponent(lang)}`;
+        });
+    }); 
+
+    // Initialize the page
+    init();
+
+    function init() {
+        let JSON_data;
+        if (textlang === 'en') {
+            JSON_data = 'CocktailsInEnglish.json';
+        } else {
+            JSON_data = 'CocktailsInGreek.json';
+        }
+
+        // Fetch and process cocktail data
+        fetch(JSON_data)
+            .then(response => response.json())
+            .then(data => handleCocktailData(data))
+            .catch(err => logError('Error loading cocktail data', err));
+    }
 
     // Handle cocktail data and set up the next question
     function handleCocktailData(data) {
@@ -52,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ question, answer: selectedAnswer })
             });
 
-            window.location.href = `NextPage.html?2=${encodeURIComponent(selectedAnswer)}`;
+            window.location.href = `NextPage.html?2=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
         } catch (err) {
             logError('Error updating click counter', err);
         }

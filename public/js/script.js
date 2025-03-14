@@ -10,7 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const loadingOverlay = document.querySelector('.loading-overlay');
     const specialButton = document.getElementById('specialButton');
     const userId = new URLSearchParams(window.location.search).get('user');
+    const textlang = new URLSearchParams(window.location.search).get('textlang') || 'gr';
     let cocktails = [];
+
+    // Set language when clicking flags
+    document.querySelectorAll('.language-switcher img').forEach(flag => {
+        flag.addEventListener('click', function () {
+            const lang = this.getAttribute('alt') === 'English' ? 'en' : 'gr';
+            window.location.href = `index.html?textlang=${encodeURIComponent(lang)}`;
+        });
+    });
 
     // Initialize the page
     init(); 
@@ -21,12 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
             specialButton.style.display = 'inline-block';
             throwErrorButton.style.display = 'inline-block';
         }
-        
+
+        let JSON_data;
+        if (textlang === 'en') {
+            JSON_data = 'CocktailsInEnglish.json';
+        } else {
+            JSON_data = 'CocktailsInGreek.json';
+        }
+
         // Initialize EmailJS
         emailjs.init(EMAILJS_USER_ID);
-        
+
         // Fetch cocktail data and populate question and answers
-        fetch('OubiCocktails.json')
+        fetch(JSON_data)
             .then(response => response.json())
             .then(data => handleCocktailData(data))
             .catch(err => logError('Error loading cocktail data', err));
@@ -74,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: JSON.stringify({ question: questionElement.textContent, answer: selectedAnswer })
             });
 
-            window.location.href = `SecondPage.html?FirstQuestionAnswer=${encodeURIComponent(selectedAnswer)}`;
+            window.location.href = `SecondPage.html?FirstQuestionAnswer=${encodeURIComponent(selectedAnswer)}&textlang=${encodeURIComponent(textlang)}`;
         } catch (err) {
             logError('Error updating click counter', err);
         } 
@@ -89,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             if (cocktails.length) {
                 const randomCocktail = cocktails[Math.floor(Math.random() * cocktails.length)];
-                window.location.href = `Result.html?name=${encodeURIComponent(randomCocktail.name)}`;
+                window.location.href = `Result.html?name=${encodeURIComponent(randomCocktail.name)}?lang=${encodeURIComponent(lang)}`;
             }
         } catch (err) {
             logError('Εrror in handling random cocktail button', err);

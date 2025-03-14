@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Switcher</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .language-switcher img {
+            width: 32px;
+            height: 32px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        #current-language {
+            font-size: 16px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="language-switcher">
+        <span id="current-language">Language: English</span>
+        <img src="images/gb.png" alt="English" onclick="setLanguage('en')">
+        <img src="images/fr.png" alt="French" onclick="setLanguage('fr')">
+    </div>
+
+    <h1>Welcome to My Website</h1>
+    <p>Select your preferred language by clicking on a flag.</p>
+
+    <script>
+        // Global variable to store the selected language
+        var selectedLanguage = 'en'; // Default language
+        var languageNames = { 'en': 'English', 'fr': 'French' }; // Language name mapping
+
+        function setLanguage(lang) {
+            selectedLanguage = lang;
+            document.getElementById("current-language").innerText = "Language: " + languageNames[lang];
+
+            // Store in localStorage to persist after page reload
+            localStorage.setItem('selectedLanguage', selectedLanguage);
+        }
+
+        // On page load, restore the language if it was saved
+        window.onload = function() {
+            const savedLang = localStorage.getItem('selectedLanguage');
+            if (savedLang && languageNames[savedLang]) {
+                selectedLanguage = savedLang;
+                document.getElementById("current-language").innerText = "Language: " + languageNames[savedLang];
+            }
+        };
+    </script>
+
+</body>
+</html>
