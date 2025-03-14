@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             if (cocktails.length) {
                 const randomCocktail = cocktails[Math.floor(Math.random() * cocktails.length)];
-                window.location.href = `Result.html?name=${encodeURIComponent(randomCocktail.name)}?lang=${encodeURIComponent(lang)}`;
+                window.location.href = `Result.html?name=${encodeURIComponent(randomCocktail.name)}?lang=${encodeURIComponent(textlang)}`;
             }
         } catch (err) {
             logError('Εrror in handling random cocktail button', err);
