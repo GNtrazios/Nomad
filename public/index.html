@@ -9,21 +9,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/solid.min.css">
 
     <!-- Vercel Analytics Script --> 
-    <script>
+    <!-- <script>
         // window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
         // Override the default va function
         window.va = function () {
             // Check if the event is a page view
             if (arguments[0] === 'pageview') {
                 // Do nothing (prevent page view tracking)
+                console.log('Page view tracking blocked');
                 return;
             }
             // Forward all other events to the original va function
             (window.vaq = window.vaq || []).push(arguments);
         };
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script> -->
     <!-- End of Vercel Analytics Script --> 
+    <script defer src="/_vercel/insights/script.js"></script>
 
     <!-- EmailJS Script -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
