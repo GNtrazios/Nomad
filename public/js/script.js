@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function init() {
         
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-        
+        // window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+
         // Display special button for specific users
         if (userId === 'specialUser') {
             specialButton.style.display = 'inline-block';
