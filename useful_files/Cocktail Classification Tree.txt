@@ -1,0 +1,52 @@
+└── Select your drink style:
+    ├── A) Alcoholic
+    │   ├── What kind of experience are you looking for?
+    │   │   ├── A) Something Sweet...
+    │   │   │   ├── What type of sweetness are you in the mood for?
+    │   │   │   │   ├── A) Tropical and Fruity
+    │   │   │   │   │   ├── What is your combo?
+    │   │   │   │   │   │   ├── A) Dragon fruit and Rum
+    │   │   │   │   │   │   │   └── Result: Dragons Zombie 
+    │   │   │   │   │   │   ├── B) Watermelon & Masticha
+    │   │   │   │   │   │   │   └── Result: WRMLN
+    │   │   │   │   ├── B) Vodka-based Dessert
+    │   │   │   │   │   ├── Which combo speaks to you?
+    │   │   │   │   │   │   ├── A) Lemon & hazelnut
+    │   │   │   │   │   │   │   └── Result: Lemon Pie 
+    │   │   │   │   │   │   ├── B) Coffee & Pistachio
+    │   │   │   │   │   │   │   └── Result: Green Russian
+    │   │   ├── B) Light and Refreshing
+    │   │   │   ├── You are in the mood for...
+    │   │   │   │   ├── A) Something with Gin
+    │   │   │   │   │   ├── How are you feeling about cucumber?
+    │   │   │   │   │   │   ├── A) Love it!
+    │   │   │   │   │   │   │   ├── Cucumber goes with...
+    │   │   │   │   │   │   │   │   ├── How are you feeling about cucumber?
+    │   │   │   │   │   │   │   │   │   ├── A) Melon
+    │   │   │   │   │   │   │   │   │   │   └── Result: Green Elixir
+    │   │   │   │   │   │   │   │   │   ├── B) Apple
+    │   │   │   │   │   │   │   │   │   │   └── Result: Green Oasis
+    │   │   │   │   │   │   ├── B) No thank you!
+    │   │   │   │   │   │   │   └── Result: The Pearl
+    │   │   │   │   ├── B) Light & Fruity
+    │   │   │   │   │   ├── What is your combo?
+    │   │   │   │   │   │   ├── A) Paloma with a twist
+    │   │   │   │   │   │   │   └── Result: Clear Paloma
+    │   │   │   │   │   │   ├── B) Strawberry and Aperol
+    │   │   │   │   │   │   │   └── Result: Strawberry Fields
+    │   │   │   │   │   │   ├── C) Fig and Elderflower
+    │   │   │   │   │   │   │   └── Result: Fig and Fizz
+    │   │   ├── C) Complex and Elegant
+    │   │   │   ├── What do you prefer?
+    │   │   │   │   ├── A) Vodka, Coffee & Pistachio
+    │   │   │   │   │   └── Result: Green Russian
+    │   │   │   │   ├── B) Tequila & Mezcal
+    │   │   │   │   │   └── Result: Jalisco
+    ├── B) Alcohol-free
+    │   ├── What are you in the mood for?
+    │   │   ├── A) Α Sweet Paradise
+    │   │   │   ├── Which fruit flavor do you prefer?
+    │   │   │   │   └── Result: Jamaica's Secret
+    │   │   ├── B) Sparkly and Refreshing
+    │   │   │   │   └── Result: Zero Sparkler
+   

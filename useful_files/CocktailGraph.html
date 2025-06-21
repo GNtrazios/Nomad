@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Drink Selector Chart</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gojs/2.3.11/go.js"></script>
+  <style>
+    html, body { width: 100%; height: 100%; margin: 0; }
+    #myDiagramDiv { width: 100%; height: 100vh; background-color: #f0f0f0; }
+  </style>
+</head>
+<body>
+  <div id="myDiagramDiv"></div>
+  <script>
+    const $ = go.GraphObject.make;
+    const myDiagram = $(go.Diagram, "myDiagramDiv", {
+      initialAutoScale: go.Diagram.Uniform,
+      layout: $(go.TreeLayout, { angle: 90, layerSpacing: 30 })
+    });
+
+    const nodeDataArray = [
+      { key: "Start", text: "Select your drink style:" },
+      { key: "A", text: "Alcoholic", parent: "Start" },
+      { key: "B", text: "Alcohol-free", parent: "Start" },
+
+      { key: "A1", text: "What kind of experience are you looking for?", parent: "A" },
+      { key: "A1A", text: "Something Sweet...", parent: "A1" },
+      { key: "A1B", text: "Light & Refreshing", parent: "A1" },
+      { key: "A1C", text: "Complex & Elegant", parent: "A1" },
+
+      { key: "Sweet1", text: "What type of sweetness are you in the mood for?", parent: "A1A" },
+      { key: "SweetFruity", text: "Tropical & Fruity", parent: "Sweet1" },
+      { key: "VodkaDessert", text: "Vodka-based Dessert", parent: "Sweet1" },
+
+      { key: "Combo1", text: "Dragon fruit & Rum", parent: "SweetFruity" },
+      { key: "Combo2", text: "Watermelon & Masticha", parent: "SweetFruity" },
+      { key: "Combo3", text: "Lemon & hazelnut", parent: "VodkaDessert" },
+      { key: "Combo4", text: "Coffee & Pistachio", parent: "VodkaDessert" },
+
+      { key: "Res1", text: "Result: Dragons Zombie", parent: "Combo1" },
+      { key: "Res2", text: "Result: WRMLN", parent: "Combo2" },
+      { key: "Res3", text: "Result: Lemon Pie", parent: "Combo3" },
+      { key: "Res4", text: "Result: Green Russian", parent: "Combo4" },
+
+      { key: "Light1", text: "You are in the mood for...", parent: "A1B" },
+      { key: "Gin", text: "Something with Gin", parent: "Light1" },
+      { key: "Fruit", text: "Light & Fruity", parent: "Light1" },
+
+      { key: "Cucumber", text: "How are you feeling about cucumber?", parent: "Gin" },
+      { key: "LoveIt", text: "Love it!", parent: "Cucumber" },
+      { key: "NoThanks", text: "No thank you!", parent: "Cucumber" },
+
+      { key: "CucumberCombo", text: "Cucumber goes with...", parent: "LoveIt" },
+      { key: "Melon", text: "Melon", parent: "CucumberCombo" },
+      { key: "Apple", text: "Apple", parent: "CucumberCombo" },
+      { key: "Pearl", text: "Result: The Pearl", parent: "NoThanks" },
+      { key: "Res5", text: "Result: Green Elixir", parent: "Melon" },
+      { key: "Res6", text: "Result: Green Oasis", parent: "Apple" },
+
+      { key: "Combo", text: "What is your combo?", parent: "Fruit" },
+      { key: "Fruit1", text: "Paloma with a twist", parent: "Combo" },
+      { key: "Fruit2", text: "Strawberry and Aperol", parent: "Combo" },
+      { key: "Fruit3", text: "Fig and Elderflower", parent: "Combo" },
+      { key: "Res7", text: "Result: Clear Paloma", parent: "Fruit1" },
+      { key: "Res8", text: "Result: Strawberry Fields", parent: "Fruit2" },
+      { key: "Res9", text: "Result: Fig and Fizz", parent: "Fruit3" },
+
+      { key: "Prefer", text: "What do you prefer?", parent: "A1C" },
+      { key: "Complex1", text: "Vodka, Coffee & Pistachio", parent: "Prefer" },
+      { key: "Complex2", text: "Tequila & Mezcal", parent: "Prefer" },
+      { key: "Res10", text: "Result: Green Russian", parent: "Complex1" },
+      { key: "Res11", text: "Result: Jalisco", parent: "Complex2" },
+
+      { key: "B1", text: "What are you in the mood for?", parent: "B" },
+      { key: "B1A", text: "A Sweet Paradise", parent: "B1" },
+      { key: "B1B", text: "Sparkly and Refreshing", parent: "B1" },
+      { key: "Res12", text: "Result: Jamaica's Secret", parent: "B1A" },
+      { key: "Res13", text: "Result: Zero Sparkler", parent: "B1B" }
+    ];
+
+    function clearHighlights() {
+      myDiagram.nodes.each(node => node.findObject("SHAPE").fill = "#ffffff");
+      myDiagram.links.each(link => link.path.stroke = "black");
+    }
+
+    function highlightPathTo(node) {
+      if (!node) return;
+      while (node) {
+        const shape = node.findObject("SHAPE");
+        if (shape) shape.fill = "#cce5ff";
+        const parentKey = myDiagram.model.getParentKeyForNodeData(node.data);
+        if (parentKey) {
+          const parentNode = myDiagram.findNodeForKey(parentKey);
+          const link = Array.from(parentNode.findTreeChildrenLinks()).find(l => l.toNode === node);
+          if (link) link.path.stroke = "blue";
+          node = parentNode;
+        } else {
+          break;
+        }
+      }
+    }
+
+    myDiagram.addDiagramListener("ObjectSingleClicked", e => {
+      clearHighlights();
+      const part = e.subject.part;
+      if (part instanceof go.Node) {
+        highlightPathTo(part);
+      }
+    });
+
+    myDiagram.nodeTemplate = $(go.Node, "Auto",
+      $(go.Shape, "RoundedRectangle", { name: "SHAPE", fill: "#ffffff" }),
+      $(go.TextBlock, { margin: 6, wrap: go.TextBlock.WrapFit, width: 200 },
+        new go.Binding("text", "text"))
+    );
+
+    myDiagram.linkTemplate = $(go.Link,
+      $(go.Shape),
+      $(go.Shape, { toArrow: "Standard" })
+    );
+
+    myDiagram.model = new go.TreeModel(nodeDataArray);
+  </script>
+</body>
+</html>
