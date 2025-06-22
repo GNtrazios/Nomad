@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const { questionId, answerText, answerLanguage } = req.body;
 
-  const { error } = await supabase.rpc('increment_answer_count', {
+  const { error } = await supabase.rpc('nomad_increment_answer_count', {
     questionid: questionId,
     answer_text: answerText,
     answer_language: answerLanguage,
