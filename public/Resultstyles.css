@@ -1,0 +1,137 @@
+/* General body and background styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: url('images/background.png') center/cover fixed no-repeat;
+    color: white;
+    overflow: hidden; /* Prevent unwanted scroll */
+}
+
+/* Main container with background effect */
+.background {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px; /* Ensures spacing top/bottom on all devices */
+    box-sizing: border-box;
+}
+
+/* Content box styling */
+.box {
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 2px solid #a24f22;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 1000px;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+/* Heading styling */
+.main-content h2 {
+    margin-bottom: 10px;
+    color: #ffc09f;
+    text-align: center;
+}
+
+/* Table wrapper with spacing */
+.table-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #5a2e1b;
+    margin-bottom: 20px;
+}
+
+/* Scrollable body for each table */
+.table-wrapper table {
+    display: block;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #a36042;
+    color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Sticky header */
+.table-wrapper thead {
+    display: block;
+    width: 100%;
+    background-color: #882f14;
+}
+
+.table-wrapper th {
+    padding: 10px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #882f14;
+    width: 25%; /* adjust based on # of columns */
+    box-sizing: border-box;
+}
+
+/* Scrollable tbody */
+.table-wrapper tbody {
+    display: block;
+    max-height: 200px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+/* Table cells */
+.table-wrapper td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #000;
+    width: 25%; /* match header */
+    box-sizing: border-box;
+}
+
+/* Alternate row shading */
+.table-wrapper tbody tr:nth-child(even) {
+    background-color: #8e4d30;
+}
+
+/* Custom scrollbar */
+.table-wrapper tbody::-webkit-scrollbar {
+    width: 8px;
+}
+
+.table-wrapper tbody::-webkit-scrollbar-thumb {
+    background-color: #a24f22;
+    border-radius: 4px;
+}
+
+.table-wrapper tbody::-webkit-scrollbar-thumb:hover {
+    background: #d46a39;
+}
+
+/* Responsive tweaks for mobile */
+@media (max-width: 768px) {
+    .box {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .table-wrapper th,
+    .table-wrapper td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    .table-wrapper tbody {
+        max-height: 150px;
+    }
+}
