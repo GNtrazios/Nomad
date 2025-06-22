@@ -26,7 +26,7 @@ body, html {
   /* Main quiz box */
   #quiz {
     background: rgba(0, 0, 0, 0.72);
-    border: 2px solid #4569ad;
+    border: 2px solid #9f825b;
     border-radius: 20px;
     padding: 20px;
     width: 95%;
@@ -130,7 +130,7 @@ body, html {
   }
   
   .random-button button {
-    background-color: #1f3f74;
+    background-color: #82614a;
     border: none;
     border-radius: 15px;
     padding: 12px 24px;
