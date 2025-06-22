@@ -5,7 +5,8 @@ export default async function handler(req, res) {
   console.log('Incoming request with:', { id, language });
 
   const { data: question, error: qError } = await supabase
-    .from('nomad.questions')
+    .schema('nomad')
+    .from('questions')
     .select('*')
     .eq('id', id)
     .eq('language', language)
@@ -19,7 +20,8 @@ export default async function handler(req, res) {
   console.log('Fetched question:', question);
 
   const { data: answers, error: aError } = await supabase
-    .from('nomad.answers')
+    .schema('nomad')
+    .from('answers')
     .select('answer, next_question_id')
     .eq('question_id', id)
     .eq('language', language)
