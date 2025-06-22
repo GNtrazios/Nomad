@@ -4,8 +4,7 @@ export default async function handler(req, res) {
   const { language } = req.query;
 
   const { data, error } = await supabase
-    .schema('nomad')
-    .from('questions')
+    .from('nomad_questions')
     .select('*')
     .eq('is_result', true)
     .eq('language', language);
