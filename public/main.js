@@ -11,9 +11,9 @@ function renderQuestion(q) {
   const container = document.getElementById('quiz');
  
   // const imagePath = q.is_result ? `images/${q.question}.jpg` : '';
-  // const imagePath = q.is_result ? `images/${q.question.replace(/\s+/g, '_')}.jpg` : ''; // "Mai Tai" becomes "Mai_Tai.jpg".
+  const imagePath = q.is_result ? `images/${q.question.replace(/[^\w\s]/g, '').replace(/\s+/g, '_').toLowerCase()}.jpg` : ''; // "Mai Tai" becomes "Mai_Tai.jpg".
 
-  const imagePath = q.is_result ? 'images/MaiTai.jpg' : '';
+//   const imagePath = q.is_result ? 'images/MaiTai.jpg' : '';
   const surprise = currentLanguage === 'gr' ? 'Εκπληξη!' : 'Surprise Me!';
 
   container.innerHTML = `
