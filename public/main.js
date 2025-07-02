@@ -18,6 +18,7 @@ function renderQuestion(q) {
 
   container.innerHTML = `
     <div class="question">${q.question}</div>
+    // <div class="question">${q.question.replace(/[^\w\s]/g, '').replace(/\s+/g, '_').toLowerCase()}</div>
 
     ${q.is_result ? `
       <div class="result-image">
