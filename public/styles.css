@@ -101,6 +101,21 @@ body, html {
     transition: transform 0.2s;
   }
   
+  /* Logo */
+  .logo {
+    position: fixed;
+    bottom: 20px; /* Adjust the spacing from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+  
+  .logo img {
+    max-width: 150px; /* Optional: control logo size */
+    height: auto;
+  }
+  
+  
   /* Result display */
   .result-image {
     margin-top: 20px;
