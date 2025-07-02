@@ -51,12 +51,16 @@ function renderQuestion(q) {
     }
   `;
 
-    // Hide or show logo based on whether it's a result screen
+    // Hide or show logo and flags based on whether it's a result screen
     const logo = document.querySelector('.logo');
+    const flags = document.querySelector('.language-switch');
+
     if (q.is_result) {
-    logo.style.display = 'none';
+        logo.style.display = 'none';
+        flags.style.display = 'none';
     } else {
-    logo.style.display = 'block';
+        logo.style.display = 'block';
+        flags.style.display = 'block';
     }
 
 }

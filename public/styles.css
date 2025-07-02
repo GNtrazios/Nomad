@@ -126,12 +126,8 @@ body, html {
   }
   
   .result-image img {
-    /* width: 85%;
-    height: 50%;
-    max-height: 400px;
-    max-width: 400px; */
-    width: 250px;
-    height: 350px;
+    width: 265px;
+    height: 370px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
