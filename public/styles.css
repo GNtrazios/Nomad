@@ -126,8 +126,8 @@ body, html {
   }
   
   .result-image img {
-    width: 265px;
-    height: 370px;
+    width: 275px;
+    height: 375px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
