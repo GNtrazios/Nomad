@@ -50,6 +50,15 @@ function renderQuestion(q) {
         ` : ''
     }
   `;
+
+    // Hide or show logo based on whether it's a result screen
+    const logo = document.querySelector('.logo');
+    if (q.is_result) {
+    logo.style.display = 'none';
+    } else {
+    logo.style.display = 'block';
+    }
+
 }
 
 async function handleAnswer(nextId, selectedAnswerText, language) {

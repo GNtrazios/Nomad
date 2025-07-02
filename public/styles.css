@@ -108,10 +108,11 @@ body, html {
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
+    display: block; /* Default: visible */
   }
   
   .logo img {
-    max-width: 150px; /* Optional: control logo size */
+    max-width: 80px; /* Optional: control logo size */
     height: auto;
   }
   
