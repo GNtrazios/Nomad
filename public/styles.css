@@ -114,7 +114,7 @@ body, html {
   .logo img {
     max-width: 80px;
     height: auto;
-    border-radius: 20px;
+    border-radius: 10px;
     overflow: hidden;
   }
   
