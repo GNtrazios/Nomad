@@ -14,7 +14,7 @@ function renderQuestion(q) {
   const imagePath = q.is_result ? `images/${q.question.replace(/[^\w\s]/g, '').replace(/\s+/g, '_').toLowerCase()}.jpg` : ''; // "Mai Tai" becomes "Mai_Tai.jpg".
 
 //   const imagePath = q.is_result ? 'images/MaiTai.jpg' : '';
-  const surprise = currentLanguage === 'gr' ? 'Εκπληξη!' : 'Surprise Me!';
+  const surprise = currentLanguage === 'gr' ? 'Έκπληξη!' : 'Surprise Me!';
   const back = currentLanguage === 'gr' ? 'Πίσω' : 'Back';
   const home = currentLanguage === 'gr' ? 'Αρχική' : 'Home';
 
