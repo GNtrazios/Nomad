@@ -9,7 +9,7 @@ body, html {
     align-items: center;
     flex-direction: column;
     /* background: url('images/background.png') center/cover fixed no-repeat; */
-    background: url('images/top-view-3d-green-palm-leaves-composition.jpg') center/cover fixed no-repeat;
+    background: url('images/background.jpg') center/cover fixed no-repeat;
     color: #333;
   }
   
