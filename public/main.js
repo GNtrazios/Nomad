@@ -15,6 +15,8 @@ function renderQuestion(q) {
 
 //   const imagePath = q.is_result ? 'images/MaiTai.jpg' : '';
   const surprise = currentLanguage === 'gr' ? 'Εκπληξη!' : 'Surprise Me!';
+  const back = currentLanguage === 'gr' ? 'Πίσω' : 'Back';
+  const home = currentLanguage === 'gr' ? 'Αρχική' : 'Home';
 
   container.innerHTML = `
     <div class="question">${q.question}</div>
@@ -44,8 +46,8 @@ function renderQuestion(q) {
       questionHistory.length > 0
         ? `
           <div class="nav-buttons">
-            <button onclick="goBack()" class="back-btn">Back</button>
-            <button onclick="goHome()" class="home-btn">Home</button>
+            <button onclick="goBack()" class="back-btn"> ${back} </button>
+            <button onclick="goHome()" class="home-btn"> ${home} </button>
           </div>
         ` : ''
     }
