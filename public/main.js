@@ -10,20 +10,31 @@ async function fetchQuestion(id, language) {
 function renderQuestion(q) {
   const container = document.getElementById('quiz');
  
-  // const imagePath = q.is_result ? `images/${q.question}.jpg` : '';
   const imagePath = q.is_result ? `images/${q.question.replace(/[^\w\s]/g, '').replace(/\s+/g, '_').toLowerCase()}.jpg` : ''; // "Mai Tai" becomes "Mai_Tai.jpg".
 
-//   const imagePath = q.is_result ? 'images/MaiTai.jpg' : '';
   const surprise = currentLanguage === 'gr' ? 'Έκπληξη!' : 'Surprise Me!';
   const back = currentLanguage === 'gr' ? 'Πίσω' : 'Back';
   const home = currentLanguage === 'gr' ? 'Αρχική' : 'Home';
+
+  // ✅ Preload result image for faster load
+  if (q.is_result && imagePath) {
+    const preloadLink = document.createElement('link');
+    preloadLink.rel = 'preload';
+    preloadLink.as = 'image';
+    preloadLink.href = imagePath;
+
+    // Prevent duplicate preload entries
+    if (!document.querySelector(`link[rel="preload"][href="${imagePath}"]`)) {
+      document.head.appendChild(preloadLink);
+    }
+  }
 
   container.innerHTML = `
     <div class="question">${q.question}</div>
 
     ${q.is_result ? `
       <div class="result-image">
-        <img src="${imagePath}" alt="${q.question}" />
+        <img src="${imagePath}" alt="${q.question}" loading="eager" />
       </div>
       <div class="result-description">
         ${q.description || ''}
@@ -32,7 +43,9 @@ function renderQuestion(q) {
 
     <div class="answers">
       ${q.options.map(opt => `
-        <button onclick="handleAnswer('${opt.next_question_id}', '${opt.answer}', '${q.language}')">${opt.answer}</button>
+        <button onclick="handleAnswer('${opt.next_question_id}', '${opt.answer}', '${q.language}')">
+          ${opt.answer}
+        </button>
       `).join('')}
     </div>
 
@@ -42,29 +55,25 @@ function renderQuestion(q) {
       </div>
     ` : ''}
 
-    ${
-      questionHistory.length > 0
-        ? `
-          <div class="nav-buttons">
-            <button onclick="goBack()" class="back-btn"> ${back} </button>
-            <button onclick="goHome()" class="home-btn"> ${home} </button>
-          </div>
-        ` : ''
-    }
+    ${questionHistory.length > 0 ? `
+      <div class="nav-buttons">
+        <button onclick="goBack()" class="back-btn">${back}</button>
+        <button onclick="goHome()" class="home-btn">${home}</button>
+      </div>
+    ` : ''}
   `;
 
-    // Hide or show logo and flags based on whether it's a result screen
-    const logo = document.querySelector('.logo');
-    const flags = document.querySelector('.language-switch');
+  // Toggle logo and language flags visibility
+  const logo = document.querySelector('.logo');
+  const flags = document.querySelector('.language-switch');
 
-    if (q.is_result) {
-        logo.style.display = 'none';
-        flags.style.display = 'none';
-    } else {
-        logo.style.display = 'block';
-        flags.style.display = 'block';
-    }
-
+  if (q.is_result) {
+    logo.style.display = 'none';
+    flags.style.display = 'none';
+  } else {
+    logo.style.display = 'block';
+    flags.style.display = 'block';
+  }
 }
 
 async function handleAnswer(nextId, selectedAnswerText, language) {
@@ -73,7 +82,11 @@ async function handleAnswer(nextId, selectedAnswerText, language) {
   await fetch('/api/updateCount', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ questionId: currentQuestionId, answerText: selectedAnswerText, answerLanguage: language })
+    body: JSON.stringify({
+      questionId: currentQuestionId,
+      answerText: selectedAnswerText,
+      answerLanguage: language
+    })
   });
 
   const next = await fetchQuestion(nextId, language);
@@ -94,7 +107,6 @@ function goBack() {
   if (questionHistory.length === 0) return;
 
   currentQuestionId = questionHistory.pop();
-
   fetchQuestion(currentQuestionId, currentLanguage).then(renderQuestion);
 }
 
